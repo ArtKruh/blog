@@ -1,77 +1,36 @@
 ---
-title: Display Jupyter Notebooks with Academic
-subtitle: Learn how to blog in Academic using Jupyter notebooks
+title: Неприрывная интеграция и непрерывное развертывание.
+subtitle: Разберемся в этих сложных понятиях вместе!
 summary: Learn how to blog in Academic using Jupyter notebooks
 authors:
   - admin
 tags: []
 categories: []
 projects: []
-date: '2019-02-05T00:00:00Z'
-lastMod: '2019-09-05T00:00:00Z'
+date: '15.03.2023'
+lastMod: '15.03.2023'
 image:
   caption: ''
   focal_point: ''
 ---
 
-```python
-from IPython.core.display import Image
-Image('https://www.python.org/static/community_logos/python-logo-master-v3-TM-flattened.png')
-```
+## Непрерывная интеграция
 
-![png](./index_1_0.png)
+Разработчики, применяющие непрерывную интеграцию, при каждой возможности выполняют слияние своих изменений с основной веткой. Изменения, внесенные разработчиком, проверяются путем создания сборки и запуска автоматических тестов на этой сборке. С таким подходом вы избегаете сложностей при интеграции, когда нужно ждать дня релиза, чтобы выполнить слияние изменений в соответствующей ветке.
 
-```python
-print("Welcome to Academic!")
-```
+При использовании непрерывной интеграции уделяется большое внимание автоматизации тестирования, в результате которого при интеграции новых коммитов в основную ветку работа приложения не нарушается.
 
-    Welcome to Academic!
+## Непрерывная поставка
 
-## Install Python and JupyterLab
+Непрерывная поставка является продолжением непрерывной интеграции, поскольку при ней происходит автоматическое развертывание всех изменений кода в тестовой и (или) рабочей среде после этапа сборки.
 
-[Install Anaconda](https://www.anaconda.com/distribution/#download-section) which includes Python 3 and JupyterLab.
+Это значит, что автоматизирован не только процесс тестирования, но и процесс выпуска продукта, поэтому приложение можно развернуть в любое время одним нажатием.
 
-Alternatively, install JupyterLab with `pip3 install jupyterlab`.
+Теоретически при непрерывной поставке вы можете выпускать релизы ежедневно, еженедельно, каждые две недели или с любой другой периодичностью, актуальной для бизнеса. Однако если вы действительно хотите получить преимущества от непрерывной поставки, следует выполнять развертывание в рабочей среде как можно раньше, обеспечивая выпуск небольших пакетов изменений, в которых легко найти ошибку в случае проблем.
 
-## Create or upload a Jupyter notebook
+## Непрерывное развертывание
 
-Run the following commands in your Terminal, substituting `<MY-WEBSITE-FOLDER>` and `<SHORT-POST-TITLE>` with the file path to your Academic website folder and a short title for your blog post (use hyphens instead of spaces), respectively:
+Непрерывное развертывание идет на один шаг дальше, чем непрерывная поставка. При этом подходе каждое изменение, которое проходит все стадии производственного конвейера, выпускается для клиентов. Вмешательство человека не требуется, и развертыванию нового изменения в рабочую среду может помешать только ошибка во время теста.
 
-```bash
-mkdir -p <MY-WEBSITE-FOLDER>/content/post/<SHORT-POST-TITLE>/
-cd <MY-WEBSITE-FOLDER>/content/post/<SHORT-POST-TITLE>/
-jupyter lab index.ipynb
-```
+Непрерывное развертывание — это отличный способ ускорить цикл обратной связи с клиентами и избавить команду от лишнего напряжения, отменив «день релиза». Разработчики могут сосредоточиться на создании ПО. Они видят, как их код запускается в работу за считанные минуты, стоит только закончить.
 
-The `jupyter` command above will launch the JupyterLab editor, allowing us to add Academic metadata and write the content.
-
-## Edit your post metadata
-
-The first cell of your Jupter notebook will contain your post metadata ([front matter](https://sourcethemes.com/academic/docs/front-matter/)).
-
-In Jupter, choose _Markdown_ as the type of the first cell and wrap your Academic metadata in three dashes, indicating that it is YAML front matter:
-
-```
----
-title: My post's title
-date: 2019-09-01
-
-# Put any other Academic metadata here...
----
-```
-
-Edit the metadata of your post, using the [documentation](https://sourcethemes.com/academic/docs/managing-content) as a guide to the available options.
-
-To set a [featured image](https://sourcethemes.com/academic/docs/managing-content/#featured-image), place an image named `featured` into your post's folder.
-
-For other tips, such as using math, see the guide on [writing content with Academic](https://wowchemy.com/docs/content/writing-markdown-latex/).
-
-## Convert notebook to Markdown
-
-```bash
-jupyter nbconvert index.ipynb --to markdown --NbConvertApp.output_files_dir=.
-```
-
-## Example
-
-This post was created with Jupyter. The orginal files can be found at https://github.com/gcushen/hugo-academic/tree/master/exampleSite/content/post/jupyter
