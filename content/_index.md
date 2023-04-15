@@ -230,7 +230,15 @@ sections:
         - icon: video
           icon_pack: fas
           name: Zoom Me
-          link: 'https://zoom.com'
+          link: 'https://zoom.com' 
+        - icon: camera-retro
+          icon_pack: fas
+          name: Behance
+          link: 'https://www.behance.net/13bf3e39' 
+        - icon: camera-retro
+          icon_pack: fas
+          name: Pinterest 
+          link: 'https://ru.pinterest.com/Art_Kruh/?invite_code=a2847d7cb1324388be3eada5d30e1f4c&sender=680888174821572954' 
       # Automatically link email and phone or display as text?
       autolink: true
       # Email form provider
